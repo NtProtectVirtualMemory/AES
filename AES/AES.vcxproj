@@ -146,7 +146,7 @@
     <ClCompile Include="crypto\AES.cpp" />
     <ClCompile Include="crypto\tables.h" />
     <ClCompile Include="crypto\utils.h" />
-    <ClCompile Include="entry.cpp" />
+    <ClCompile Include="test.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="crypto\AES.h" />
