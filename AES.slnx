@@ -1,0 +1,7 @@
+<Solution>
+  <Configurations>
+    <Platform Name="x64" />
+    <Platform Name="x86" />
+  </Configurations>
+  <Project Path="AES/AES.vcxproj" Id="95d20931-cc77-404b-809e-95f0f742145f" />
+</Solution>
