@@ -6,12 +6,6 @@ constexpr uint8_t AES_256 = 32;
 
 namespace AES
 {
-	enum class Mode
-	{
-		ECB,
-		CBC
-	};
-
 	struct Context
 	{
 		int     Nk;
@@ -21,7 +15,6 @@ namespace AES
 
 	void init_context(Context& ctx, const uint8_t* key, int key_len);
 
-	void encrypt(uint8_t* data, size_t len, const Context& ctx, Mode mode, const uint8_t iv[16]);
-	void decrypt(uint8_t* data, size_t len, const Context& ctx, Mode mode, const uint8_t iv[16]);
-
+	void encrypt_block(uint8_t block[16], const Context& ctx);
+	void decrypt_block(uint8_t block[16], const Context& ctx);
 } // namespace aes

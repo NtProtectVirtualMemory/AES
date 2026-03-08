@@ -8,7 +8,13 @@ My personal take on the AES (Advanced Encryption Standard) algorithm, implemente
 
 ## Features
 
-Currently implements **AES-ECB** mode only. ECB (Electronic Codebook) is the simplest block cipher mode, each 16-byte block is encrypted independently, which makes it fast, but also means identical plaintext blocks produce identical ciphertext blocks. Read more about the vulnerability [here](https://crim.blog/posts/ecb-attack).
+ECB (Electronic Codebook) is the simplest block cipher mode, each 16-byte block is encrypted independently, which makes it fast, but also means identical plaintext blocks produce identical ciphertext blocks. Read about the vulnerability [here](https://crim.blog/posts/ecb-attack).
+
+![EBC Encryption](images/ECB_encryption.svg)
+
+CBC (Cipher Block Chaining) XORs each plaintext block with the previous ciphertext block before encrypting, using an initialization vector (IV) for the first block. This eliminates ECB's identical-block weakness at the cost of sequential (non-parallelizable) encryption, which is slower.
+
+![CBC Encryption](images/CBC_encryption.svg)
 
 ## Getting Started
 
