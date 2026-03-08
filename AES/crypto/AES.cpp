@@ -48,7 +48,7 @@ namespace AES
 	{
 		uint8_t temp;
 
-		// Row 1: right rotate by 1o
+		// Row 1: right rotate by 1
 		temp = s[13]; s[13] = s[9]; s[9] = s[5]; s[5] = s[1]; s[1] = temp;
 
 		// Row 2: right rotate by 2

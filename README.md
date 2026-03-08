@@ -2,6 +2,12 @@
 
 A minimal C++ library implementing AES-128 and AES-256 encryption, built strictly to FIPS 197.
 
+## Disclaimer
+
+This library is a proof of concept, its not intended for production use. While the implementation follows FIPS-197, it hasn't undergone any security audit. For production systems, please use a well-audited library such as [OpenSSL](https://www.openssl.org/) or [libsodium](https://doc.libsodium.org/).
+
+This library does not provide padding. All inputs must be a multiple of 16 bytes. Padding is intentionally left to the caller, this avoids padding oracle vulnerabilities and keeps the API minimal.
+
 ## Overview
 
 My personal take on the AES (Advanced Encryption Standard) algorithm, implemented strictly following [FIPS 197](https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.197-upd1.pdf). Designed with a focus on simplicity, clean API, no dependencies, single include.
