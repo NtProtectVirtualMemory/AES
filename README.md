@@ -1,6 +1,6 @@
 # AES
 
-A minimal C++ library for AES encryption and decryption.
+A minimal C++ library implementing AES-128 and AES-256 encryption, built strictly to FIPS 197.
 
 ## Overview
 
@@ -8,11 +8,7 @@ My personal take on the AES (Advanced Encryption Standard) algorithm, implemente
 
 ## Features
 
-The following features this library currently offers will be listed below
-
-``` 
-- Nothing yet :(
-```
+Currently implements **AES-ECB** mode only. ECB (Electronic Codebook) is the simplest block cipher mode, each 16-byte block is encrypted independently, which makes it fast, but also means identical plaintext blocks produce identical ciphertext blocks. Read more about the vulnerability [here](https://crim.blog/posts/ecb-attack).
 
 ## Getting Started
 
@@ -33,10 +29,33 @@ git clone https://github.com/NtProtectVirtualMemory/AES.git
 ### Basic Usage
 
 ```cpp
+#include "crypto/AES.h"
 
 int main()
 {
-    // Nothing yet :(
+    // Column Major
+    uint8_t state[16] = 
+    {
+    	0x32, 0x43, 0xf6, 0xa8,
+    	0x88, 0x5a, 0x30, 0x8d,
+    	0x31, 0x31, 0x98, 0xa2,
+    	0xe0, 0x37, 0x07, 0x34
+    };
+
+    uint8_t key[16] = 
+    {
+        0x2b, 0x7e, 0x15, 0x16,
+        0x28, 0xae, 0xd2, 0xa6,
+        0xab, 0xf7, 0x15, 0x88,
+        0x09, 0xcf, 0x4f, 0x3c
+    };
+
+    AES::Context ctx{ 0 };
+    AES::init_context(ctx, key, AES_128);
+
+    AES::encrypt_block(state, ctx);
+    AES::decrypt_block(state, ctx);
+
 }
 
 ```

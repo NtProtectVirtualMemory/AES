@@ -1,7 +1,7 @@
 #pragma once
 #include <cstdint>
 
-namespace aes 
+namespace AES 
 {
 	// S-box
 	static const uint8_t SBOX[256] = {
@@ -43,6 +43,15 @@ namespace aes
 		0x17, 0x2b, 0x04, 0x7e, 0xba, 0x77, 0xd6, 0x26, 0xe1, 0x69, 0x14, 0x63, 0x55, 0x21, 0x0c, 0x7d
 	};
 
+	// rcon
+	static const uint8_t RCON[11] = {
+		0x00,                                          
+		0x01, 0x02, 0x04, 0x08, 0x10,
+		0x20, 0x40, 0x80, 0x1B, 0x36
+	};
+
+	inline uint8_t rcon(uint8_t x) { return RCON[x]; }
 	inline uint8_t sbox(uint8_t x) { return SBOX[x]; }
 	inline uint8_t inv_sbox(uint8_t x) { return INV_SBOX[x]; }
+
 } // namespace aes
